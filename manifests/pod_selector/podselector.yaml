@@ -1,0 +1,14 @@
+apiVersion: monitoring.coreos.com/v1
+kind: PodMonitor
+metadata:
+  name: example-app
+  namespace: monitoring
+spec:
+  selector:
+    matchLabels:
+      app: nginx
+  podMetricsEndpoints:
+  - port: metrics
+  namespaceSelector:
+    matchNames:
+    - sample

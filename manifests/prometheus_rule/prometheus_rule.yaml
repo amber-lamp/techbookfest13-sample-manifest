@@ -1,0 +1,20 @@
+apiVersion: monitoring.coreos.com/v1
+kind: PrometheusRule
+metadata:
+  creationTimestamp: null
+  labels:
+    prometheus: blackbox-example
+    role: alert-rules
+  name: blackbox-example-rules
+  namespace: monitoring
+spec:
+  groups:
+  - name: ./blackbox-example.rules
+    rules:
+    - alert: BlackBoxExampleAlert
+      expr: probe_success == 0
+      labels:
+        severity: critical
+      annotations:
+        summary: Blackbox probe failed (instance {{ $labels.instance }})
+        description: "Probe failed\n  VALUE = {{ $value }}\n  LABELS = {{ $labels }}"

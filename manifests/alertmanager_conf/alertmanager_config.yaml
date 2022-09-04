@@ -1,0 +1,21 @@
+apiVersion: monitoring.coreos.com/v1alpha1
+kind: AlertmanagerConfig
+metadata:
+  name: config-example
+  namespace: monitoring
+  labels:
+    alertmanagerConfig: example
+spec:
+  route:
+    receiver: 'slack-notifications'
+    groupWait: 30s
+    groupInterval: 5m
+    repeatInterval: 12h
+    groupBy: ['job']
+  receivers:
+  - name: 'slack-notifications'
+    slackConfigs:
+    - channel: '#random'
+      apiURL: 
+        name: 'slack-config'
+        key: 'api-url'
