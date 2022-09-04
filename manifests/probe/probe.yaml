@@ -11,4 +11,4 @@ spec:
   targets:
     staticConfig:
       static:
-      - my-service.sample.svc.cluster.local/error
+      - my-service.sample.svc.cluster.local
