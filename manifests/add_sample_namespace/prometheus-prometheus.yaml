@@ -46,6 +46,5 @@ spec:
   serviceMonitorNamespaceSelector:
     matchLabels:
       prometheus: sample
-      prometheus: monitoring
   serviceMonitorSelector: {}
   version: 2.37.0
